@@ -1,3 +1,16 @@
+let prevScrollpos = window.Headers;
+window.onscroll = function() {
+  let currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.querySelector("header").style.top = "0";
+  } else {
+    document.querySelector("header").style.top = "-50px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+
+
+
 let slideIndex = 0;
 showSlides(slideIndex);
 

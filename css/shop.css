@@ -16,9 +16,12 @@ header{
     align-items: center;
     position: fixed;
     z-index: 99;
+    top: 0;
+    padding: 10px;
+    transition: top 0.3s;
     box-shadow: 0 0 10px #000;
     background: linear-gradient(90deg,
-    rgb(226, 226, 219), rgb(0, 0, 0)
+    rgb(252,61,3), rgb(253, 192, 164)
     );
 }
 #chk1{
@@ -45,12 +48,18 @@ header .search-box{
     height: 30px;
     border: none;
     outline: none;
-    background: #a39696;
+    background: linear-gradient(90deg,
+    rgb(0,39,4), rgb(241, 192, 164)
+    );;
     border-radius: 30px;
-    color: rgb(197, 0, 0);
+    color: rgb(0, 0, 0);
     font-size: 16px;
     text-align: center;
 }
+input::placeholder {
+    color: rgb(24, 23, 23); 
+  }
+  
 .search-box button{
     cursor: pointer;
     width: 37px;
@@ -61,7 +70,7 @@ header .search-box{
     top: 0;
     right: 0;
     transform: scale(0.8);
-    background: rgb(0, 0, 0);
+    background: #0c6209;
     margin-right: 32px;
     margin-top: -3px;
 }
@@ -229,8 +238,8 @@ display: none;
             background-color: grey;
         }
         .butnshop {
-            background-color: #000000; /* سبز */
-            border: 1px solid #ffffff;
+            background-color: #ffffff; /* سبز */
+            border: 1px solid #0b4202;
             color: سفید;
             text-align: center;
             text-decoration: none;
@@ -243,15 +252,15 @@ display: none;
             line-height: 0px; /* ارتفاع خط برابر با ارتفاع دکمه */
             vertical-align: middle; /* تنظیم عمودی */
             border-radius: 9%;
-            color: #fffefe;
+            color: #000000;
           }
           .price{
             font-family: 'Lucida Sans';
-            color: red;
-            text-decoration-line: underline;
+            color: rgb(9, 47, 8);
+            /*text-decoration-line: underline;*/
           }
           .butnshop:hover {
-            background-color: #2f2f2f; /* سفید */
+            background-color: #031e00; /* سفید */
             color: #ffffff; /* سبز */
             border-color: #4444; /* تغییر رنگ حاشیه */
           }
