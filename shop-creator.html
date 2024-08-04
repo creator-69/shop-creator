@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+
+</head>
+<body>
+    <header>
+        <input type="checkbox" name="" id="chk1">
+        <div class="logo"><h1 style="color:black;">Creator <span style="color: rgb(87, 87, 87);">SHOP</span></h1></div>
+        <div class="search-box">
+                <form action="">
+                    <input type="text" name="search" id="srch" placeholder="search">
+                    
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+        </div>
+            <ul>
+                    <i><a href="#" style="text-decoration: none; color: black; font-family: 'Times New Roman'; ">Home</a></i>
+                    <i><a href="#" style="text-decoration: none; color: black; font-family: 'Times New Roman';">produt</a></i>
+                    <i><a href="#" style="text-decoration: none; color: black; font-family: 'Times New Roman';">Blog</a></i>
+                    <i><a href="#" style="text-decoration: none; color: black; font-family: 'Times New Roman';">cantac</a></i>
+                    <li>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+
+                    </li>
+            </ul>
+
+            <div class="mune">
+                    <label for="chk1">
+                        <i class="fa fa-bars"></i>
+                    </label>
+
+
+            </div>
+
+        </header>
+        <br>
+        <br>
+        <br>
+        <div class="slideshow">
+            <img class="slides active" src="./img/88e7d7d654e6e5111e5d6098d84414c4a7fa341f_1667981540.webp"" alt="Image 1">
+            <img class="slides" src="./img/b006995ad474dddb8b69fb3015e6e8c37f4b3d29_1721828676.gif" alt="Image 2">
+            <img class="slides" src="./img/f54fe15f4e31f1ee1e904664129e4a97e935d7bd_1722236082.webp" alt="Image 3">
+            
+            <button class="btn btn-prev" onclick="showSlides(-1)">&#10094;</button>
+            <button class="btn btn-next" onclick="showSlides(1)">&#10095;</button>
+        </div>
+        <div class="grid_containe">
+  
+            <img class="igm" src="./img/slayder/IMG_۲۰۲۴۰۷۳۱_۱۵۱۵۰۶.jpg">
+
+                <img class="igm" src="./img/slayder/IMG_۲۰۲۴۰۷۳۱_۱۵۱۶۴۳.jpg">
+
+
+                <img class="igm" src="./img/slayder/IMG_۲۰۲۴۰۷۳۱_۱۵۱۷۰۰.jpg">
+
+    
+                <img class="igm" src="./img/slayder/IMG_۲۰۲۴۰۷۳۱_۱۵۱۸۰۱.jpg">
+           </div>
+           <br>
+           <br>
+           <br>
+           <div class="slider-container">
+            <button class="prev">Prev</button>
+            <div class="slider">
+                <div class="slide">
+                    <img src="img/hours/2787214f729fdb2777ecf01c67792a6197a242b5_1675019979.webp" class="kalaimg" alt="Product 1">
+                    <div class="matnkala"><p>Alain Delon AD354-1546 men's wristwatch</p><br><p class="price">220$</p></div>
+                    <button class="butnshop" onclick="viewProduct()">click to buy</button>
+                </div>
+                <div class="slide">
+                    <img src="img/hours/8aac5e6cba7e6bb47e83f6b1634d8543dada3d7e_1700267116.webp" class="kalaimg" alt="Product 2">
+                    <div class="matnkala"><p>Alain Delon AD394-1332C men's wristwatch</p><br><p class="price">554$</p></div>
+                    <button class="butnshop" onclick="viewProduc()">Shop Now</button>
+                </div>
+                <div class="slide">
+                    <img src="img/hours/a6ac9c48e7b947427e7ad40731aed54f17d38a83_1671134087.webp" class="kalaimg" alt="Product 3">
+                    <div class="matnkala"><p>Men's wrist watch, Dragon model color gold</p><br><p class="price">463$</p></div>
+                    <button class="butnshop" onclick="viewProdu()">Shop Now</button>
+                </div>
+                <div class="slide">
+                    <img src="img/hours/c5148af7a672a7511fa7cf923ff95fb43dca57af_1667335727.webp" class="kalaimg" alt="Product 3">
+                    <div class="matnkala"><p>Men's 1838 RGWT SKEMI wristwatch 2024 new fice</p><br><p class="price">864$</p></div>
+                    <button class="butnshop" onclick="viewProd()">Shop Now</button>
+                </div>
+                <div class="slide">
+                    <img src="img/hours/6f34056f3fb8dc20b578847a5038e8be0efc6c4e_1713571392.webp" class="kalaimg" alt="Product 3">
+                    <div class="matnkala"><p>Smart watch model K59Pro-2024 wristwatch</p><br><p class="price">465$</p></div>
+                    <button class="butnshop" onclick="viewProdz()">Shop Now</button>
+                </div>
+                <div class="slide">
+                    <img src="img/hours/8aac5e6cba7e6bb47e83f6b1634d8543dada3d7e_1700267116.webp" class="kalaimg" alt="Product 3">
+                    <div class="matnkala"><p>Smart watch model K59Pro-2024 wristwatch</p><br><p class="price">354$</p></div>
+                    <button class="butnshop" onclick="viewProdzx()">Shop Now</button>
+                </div>
+                <div class="slide">
+                    <img src="img/hours/905137023a0dfbc73395fa7b549e9caf37a905ee_1720972047.webp" class="kalaimg" alt="Product 3">
+                    <div class="matnkala"><p>Samsung Galaxy Watch6 44mm smart watch</p><br><p class="price">746$</p></div>
+                    <button class="butnshop" onclick="viewProdz()">Shop Now</button>
+                </div>
+                <div class="slide">
+                    <img src="img/hours/a6ac9c48e7b947427e7ad40731aed54f17d38a83_1671134087.webp" class="kalaimg" alt="Product 3">
+                    <div class="matnkala"><p>Honor smart watch model APTX GS PRO Fendior </p><br><p class="price">753$</p></div>
+                    <button class="butnshop" onclick="viewProdzxc()">Shop Now</button>
+                </div>
+                <div class="slide">
+                    <img src="img/hours/aff939e9382440b059ba5ecfac0c9cdb9338e5ec_1693837091.webp" class="kalaimg" alt="Product 3">
+                    <div class="matnkala"><p>Men's cross-band wristwatch color green Fendio</p><br><p class="price">562$</p></div>
+                    <button class="butnshop" onclick="viewProdzxcv()">Shop Now</button>
+                </div>
+                <div class="slide">
+                    <img src="img/hours/157672.webp" class="kalaimg" alt="Product 3">
+                    <div class="matnkala"><p>Fendior G9 Ultra Pro smart watch wristwatch</p><br><p class="price">625$</p></div>
+                    <button class="butnshop" onclick="viewProdzxcvb()">Shop Now</button>
+                </div>
+                <div class="slide">
+                    <img src="img/hours/c5148af7a672a7511fa7cf923ff95fb43dca57af_1667335727.webp" class="kalaimg" alt="Product 3">
+                    <div class="matnkala"><p>Fendior G9 Ultra Pro smart watch wristwatch</p><br><p class="price">234$</p></div>
+                    <button class="butnshop" onclick="viewProda()">Shop Now</button>
+                </div>
+           
+            </div>
+            <button class="next">Next</button>
+        </div>
+          
+</body>
+<script src="js/shop-creator.js"></script>
+</html>
