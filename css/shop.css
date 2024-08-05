@@ -6,7 +6,7 @@
 }
 body{
     height: 100vh;
-    background-color: #181616;
+    background-color: #fffefe;
 }
 header{
     width:100%;
@@ -175,12 +175,15 @@ display: none;
             overflow: hidden;
             justify-content: space-between; /* تغییر از space-evenly به space-between */
             flex-wrap: nowrap;
-            background-color: rgb(161, 161, 161);
+            background-color:#001700;
+       
         }
         
         .slider {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            width: 1000%;
+        background-color: #001700;
         }
         
         .slide {
@@ -188,12 +191,14 @@ display: none;
             box-sizing: border-box;
             flex: 0 0 30%; /* تغییر flex به 0 0 30% */
             max-width: 10%;
-            box-shadow: 1px 2px 50px rgb(0, 0, 0);
+            box-shadow: 1px 3px 1px rgb(0, 0, 0);
             margin: 10px;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 2px solid #e9e6e6;
             text-align: center;
             border-radius: 5%;
+            background-color: #ffffff9d;
+            border-color: #ffffff;
         }
         
         .prev, .next {
@@ -201,7 +206,7 @@ display: none;
             top: 50%;
             transform: translateY(-50%);
             background-color: rgba(0, 0, 0, 0.5);
-            color: white;
+            color: rgb(0, 0, 0);
             border: none;
             padding: 10px;
             cursor: pointer;
@@ -235,10 +240,10 @@ display: none;
             font-family: 'Gill Sans';
             font-size: 18px;
             border: solid rgb(157, 157, 157);
-            background-color: grey;
+            background-color: rgb(255, 255, 255);
         }
         .butnshop {
-            background-color: #ffffff; /* سبز */
+            background-color:  #020e00; /* سبز */
             border: 1px solid #0b4202;
             color: سفید;
             text-align: center;
@@ -252,7 +257,7 @@ display: none;
             line-height: 0px; /* ارتفاع خط برابر با ارتفاع دکمه */
             vertical-align: middle; /* تنظیم عمودی */
             border-radius: 9%;
-            color: #000000;
+            color: #ffffff;
           }
           .price{
             font-family: 'Lucida Sans';
@@ -260,9 +265,9 @@ display: none;
             /*text-decoration-line: underline;*/
           }
           .butnshop:hover {
-            background-color: #031e00; /* سفید */
-            color: #ffffff; /* سبز */
-            border-color: #4444; /* تغییر رنگ حاشیه */
+            background-color:#ffffff; /* سفید */
+            color: #000000; /* سبز */
+            border-color: #000000; /* تغییر رنگ حاشیه */
           }
         @media(max-width: 1024px) {
             .it {

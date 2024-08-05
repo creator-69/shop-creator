@@ -10,6 +10,11 @@ window.onscroll = function() {
 }
 
 
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+
+
 
 let slideIndex = 0;
 showSlides(slideIndex);
