@@ -21,7 +21,7 @@ header{
     transition: top 0.3s;
     box-shadow: 0 0 10px #000;
     background: linear-gradient(90deg,
-    rgb(252,61,3), rgb(253, 192, 164)
+    rgb(0, 0, 0), rgb(255, 255, 255)
     );
 }
 #chk1{
@@ -49,7 +49,7 @@ header .search-box{
     border: none;
     outline: none;
     background: linear-gradient(90deg,
-    rgb(0,39,4), rgb(241, 192, 164)
+    rgb(255, 255, 255), rgb(20, 20, 20)
     );;
     border-radius: 30px;
     color: rgb(0, 0, 0);
@@ -70,7 +70,7 @@ input::placeholder {
     top: 0;
     right: 0;
     transform: scale(0.8);
-    background: #0c6209;
+    background: #464646;
     margin-right: 32px;
     margin-top: -3px;
 }
@@ -175,7 +175,7 @@ display: none;
             overflow: hidden;
             justify-content: space-between; /* تغییر از space-evenly به space-between */
             flex-wrap: nowrap;
-            background-color:#001700;
+            background-color:#3a3a3a;
        
         }
         
@@ -183,7 +183,7 @@ display: none;
             display: flex;
             transition: transform 0.5s ease-in-out;
             width: 1000%;
-        background-color: #001700;
+        background-color: #3a3a3a;
         }
         
         .slide {
@@ -201,24 +201,27 @@ display: none;
             border-color: #ffffff;
         }
         
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: rgb(0, 0, 0);
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-        
-        .prev {
-            left: 0;
-        }
-        
-        .next {
-            right: 0;
-        }
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10; /* اضافه کردن z-index */
+}
+
+.prev {
+    left: 0;
+    margin-top: 1010px;
+}
+
+.next {
+    right: 0;
+/*   margin-top: 120px;*/
+}
         
         .kalaimg {
             width: 100%;
@@ -243,8 +246,8 @@ display: none;
             background-color: rgb(255, 255, 255);
         }
         .butnshop {
-            background-color:  #020e00; /* سبز */
-            border: 1px solid #0b4202;
+            background-color:  #ffffff; /* سبز */
+            border: 1px solid #000000;
             color: سفید;
             text-align: center;
             text-decoration: none;
@@ -257,33 +260,19 @@ display: none;
             line-height: 0px; /* ارتفاع خط برابر با ارتفاع دکمه */
             vertical-align: middle; /* تنظیم عمودی */
             border-radius: 9%;
-            color: #ffffff;
+            color: #000000;
           }
           .price{
             font-family: 'Lucida Sans';
-            color: rgb(9, 47, 8);
+            color: rgb(0, 0, 0);
             /*text-decoration-line: underline;*/
           }
           .butnshop:hover {
-            background-color:#ffffff; /* سفید */
-            color: #000000; /* سبز */
+            background-color:#1a1a1a; /* سفید */
+            color: #fff6f6; /* سبز */
             border-color: #000000; /* تغییر رنگ حاشیه */
           }
-        @media(max-width: 1024px) {
-            .it {
-                width: calc(33.33% - 20px);
-            }
-        }
-        @media(max-width: 768px) {
-            .it {
-                width: calc(50% - 20px);
-            }
-        }
-        @media(max-width: 480px) {
-            .it {
-                width: calc(100% - 20px);
-            }
-        }
+     
         .circle-container {
             display: flex;
             gap: 44px; 
@@ -307,3 +296,4 @@ display: none;
            
             border-radius: 50%;
         }
+   
