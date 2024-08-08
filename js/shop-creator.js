@@ -13,7 +13,40 @@ window.onscroll = function() {
 document.getElementById("myImage").onclick = function() {
     document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
 };
-
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+document.getElementById("myImage").onclick = function() {
+    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
+};
+//بعد زدن صفحه جدید ادرس گذاری میشود id="myDiv" به دایو داده شود
 
 
 let slideIndex = 0;
