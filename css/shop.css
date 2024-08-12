@@ -299,3 +299,6 @@ display: none;
         html {
             scroll-behavior: smooth;
           }
+          .anak{
+            width: 100%;
+          }
