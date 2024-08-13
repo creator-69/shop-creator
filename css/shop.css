@@ -319,7 +319,7 @@ display: none;
         }
           .fh{
             width: 100%;
-            height: 260px;
+            height: 180px;
             border-radius: 12px;        
 
           }
@@ -331,4 +331,7 @@ display: none;
             margin: auto;
             border-radius: 12px;
           }
-        
+        .py{
+            margin-right: 250px;
+            margin-left: 150px;
+        }
