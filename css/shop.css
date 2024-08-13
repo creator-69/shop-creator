@@ -302,3 +302,24 @@ display: none;
           .anak{
             width: 100%;
           }
+          .qer{
+            flex: 1;
+            width: 80px;
+            height: 320px;
+            gap: 50px;
+          background-color: white;  
+          border-color: 5px rgb(92, 92, 92);  
+          border-radius: 12px;        
+        }
+          .gaty{
+            display: flex;
+            gap: 20px;
+            background-color: rgb(255, 255, 255);
+
+        }
+          .fh{
+            width: 100%;
+            height: 260px;
+            border-radius: 12px;        
+
+          }
