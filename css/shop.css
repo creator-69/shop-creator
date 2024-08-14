@@ -20,9 +20,8 @@ header{
     padding: 10px;
     transition: top 0.3s;
     box-shadow: 0 0 10px #000;
-    background: linear-gradient(90deg,
-    rgb(0, 0, 0), rgb(255, 255, 255)
-    );
+    background-color: transparent;
+    border: 1px solid #ffffff;
 }
 #chk1{
     display: none;
