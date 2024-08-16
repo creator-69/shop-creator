@@ -6,7 +6,7 @@
 }
 body{
     height: 100vh;
-    background: linear-gradient(50deg, #25ced1,#ffffff);
+    background: linear-gradient(100deg, #ffd084,#6cf8ff);
 }
 header{
     width:100%;
@@ -173,7 +173,7 @@ display: none;
             overflow: hidden;
             justify-content: space-between; /* تغییر از space-evenly به space-between */
             flex-wrap: nowrap;
-            background-color:#3a3a3a;
+            background-color: transparent;
        
         }
         
@@ -181,7 +181,8 @@ display: none;
             display: flex;
             transition: transform 0.5s ease-in-out;
             width: 1000%;
-        background-color: #3a3a3a;
+           background-color: transparent;
+
         }
         
         .slide {
@@ -195,7 +196,8 @@ display: none;
             border: 2px solid #e9e6e6;
             text-align: center;
             border-radius: 5%;
-            background-color: #ffffff9d;
+            background-color: transparent;
+
             border-color: #ffffff;
         }
         
