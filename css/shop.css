@@ -6,7 +6,7 @@
 }
 body{
     height: 100vh;
-    background-color: #fffefe;
+    background: linear-gradient(50deg, #25ced1,#ffffff);
 }
 header{
     width:100%;
@@ -47,16 +47,15 @@ header .search-box{
     height: 30px;
     border: none;
     outline: none;
-    background: linear-gradient(90deg,
-    rgb(255, 255, 255), rgb(20, 20, 20)
+    background: linear-gradient(100deg, #25ced1,#FFFFFF
     );;
     border-radius: 30px;
-    color: rgb(0, 0, 0);
+    color: rgb(0, 200, 255);
     font-size: 16px;
     text-align: center;
 }
 input::placeholder {
-    color: rgb(24, 23, 23); 
+    color: rgb(0, 0, 0); 
   }
   
 .search-box button{
@@ -69,7 +68,7 @@ input::placeholder {
     top: 0;
     right: 0;
     transform: scale(0.8);
-    background: #464646;
+    background: #25ced1;
     margin-right: 32px;
     margin-top: -3px;
 }
