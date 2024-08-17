@@ -6,7 +6,7 @@
 }
 body{
     height: 100vh;
-    background: linear-gradient(100deg, #ffba4c,#c3feff);
+    background: linear-gradient(100deg, #474747,#ffffff);
 }
 header{
     width:100%;
@@ -47,7 +47,7 @@ header .search-box{
     height: 30px;
     border: none;
     outline: none;
-    background: linear-gradient(100deg, #25ced1,#FFFFFF
+    background: linear-gradient(100deg, #999999,#FFFFFF
     );;
     border-radius: 30px;
     color: rgb(0, 200, 255);
@@ -68,7 +68,7 @@ input::placeholder {
     top: 0;
     right: 0;
     transform: scale(0.8);
-    background: #25ced1;
+    background: #656565;
     margin-right: 32px;
     margin-top: -3px;
 }
@@ -91,7 +91,7 @@ header ul li a{
 }
 
 header ul li a:hover{
-    border-bottom: 2px solid rgb(49, 149, 227);
+    border-bottom: 2px solid rgb(0, 0, 0);
 }
 header .mune{
 
@@ -190,15 +190,15 @@ display: none;
             box-sizing: border-box;
             flex: 0 0 30%; /* تغییر flex به 0 0 30% */
             max-width: 10%;
-            box-shadow: 1px 3px 1px rgb(0, 0, 0);
+            box-shadow: 1px 1px 1px rgb(0, 0, 0);
             margin: 10px;
             padding: 10px;
-            border: 2px solid #e9e6e6;
+            border: 2px solid #000000;
             text-align: center;
             border-radius: 5%;
-            background-color: transparent;
+           background-color: #8585857e;
 
-            border-color: #ffffff;
+            border-color: #000000;
         }
         
 .prev, .next {
@@ -206,10 +206,13 @@ display: none;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
-    color: #FFFFFF;
-    border: none;
+    color: #585858;
+    outline: none;
+    border: 2px solid #000;
+border-radius: 22px;
     padding: 10px;
     cursor: pointer;
+    background-color: #d7d7d7;
     z-index: 10; /* اضافه کردن z-index */
 }
 
