@@ -6,7 +6,7 @@
 }
 body{
     height: 100vh;
-    background: linear-gradient(100deg, #ffd084,#a2faff);
+    background: linear-gradient(100deg, #ffba4c,#c3feff);
 }
 header{
     width:100%;
@@ -344,7 +344,7 @@ display: none;
         .message-box {
             display: flex;
             align-items: center;
-          
+          margin-left: -59px;
             border-radius: 25px;
             padding: 10px;
             width: 300px;
@@ -384,7 +384,7 @@ display: none;
       footer {
         background-color: #2f2f2f;
         color: #fff;
-        padding: 90px;
+        padding: 60px;
         text-align: center;
       }
   
