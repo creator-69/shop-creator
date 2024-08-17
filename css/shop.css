@@ -6,7 +6,7 @@
 }
 body{
     height: 100vh;
-    background: linear-gradient(100deg, #ffd084,#6cf8ff);
+    background: linear-gradient(100deg, #ffd084,#a2faff);
 }
 header{
     width:100%;
@@ -373,3 +373,91 @@ display: none;
         .svgpy{
             margin-left: 87%
         }
+          /* Add some basic styling to the body */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+  
+      /* Customize the footer */
+      footer {
+        background-color: #2f2f2f;
+        color: #fff;
+        padding: 90px;
+        text-align: center;
+      }
+  
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+  
+      .footer-links {
+        flex-basis: 30%;
+      }
+  
+      .footer-links ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+  
+      .footer-links li {
+        margin-right: 20px;
+      }
+  
+      .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+  
+      .footer-links a:hover {
+        color: #ccc;
+      }
+  
+      .footer-social {
+        flex-basis: 30%;
+      }
+  
+      .footer-social ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+  
+      .footer-social li {
+        margin-right: 20px;
+      }
+  
+      .footer-social a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+  
+      .footer-social a:hover {
+        color: #ccc;
+      }
+  
+      .footer-copyright {
+        flex-basis: 40%;
+        text-align: right;
+      }
+  
+      .footer-copyright p {
+        margin: 0;
+        font-size: 14px;
+        color: #666;
+      }
