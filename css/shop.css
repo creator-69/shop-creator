@@ -21,7 +21,7 @@ header{
     transition: top 0.3s;
     box-shadow: 0 0 10px #000;
     background-color: transparent;
-    border: 1px solid #ffffff;
+    border: 1px solid #f8f7f7;
 }
 #chk1{
     display: none;
