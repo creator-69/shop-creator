@@ -68,9 +68,14 @@ input::placeholder {
     top: 0;
     right: 0;
     transform: scale(0.8);
-    background: #656565;
+    background: #a7a7a7;
     margin-right: 32px;
     margin-top: -3px;
+}
+@media (max-width: 1480px) {
+  .search-box button{
+   width: 30px;
+  }
 }
 header ul{
     flex: 2;
@@ -464,9 +469,33 @@ border-radius: 22px;
         font-size: 14px;
         color: #666;
       }
-      .SHOP{
+      .SOP {
         color: #ffffff;
-       font-family: Georgia;
-       font-size: 35px;
-      }
+        font-family: Georgia;
+        font-size: 35px;
+    }
+    .sesS{
+      color: rgb(30, 30, 30);
+      font-family: Georgia;
+      font-size: 35px;
+    }
     
+    @media screen and (max-width: 1276px) {
+        .SOP {
+            font-size: 20px;
+            
+        }
+        
+
+    }
+        
+    @media screen and (max-width: 1276px) {
+      
+      .sesS{
+        font-size: 20px;
+      }
+  }
+  @media screen and (max-width: 1356px) {
+   
+
+  }
