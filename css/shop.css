@@ -464,3 +464,13 @@ border-radius: 22px;
         font-size: 14px;
         color: #666;
       }
+      .SHOP{
+        color: #ffffff;
+       font-family: Georgia;
+       font-size: 35px;
+      }
+      @media screen and(max-with:360px){
+        #SHOP{
+         font-size: 5px;
+        }
+      }
