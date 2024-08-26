@@ -469,8 +469,4 @@ border-radius: 22px;
        font-family: Georgia;
        font-size: 35px;
       }
-      @media screen and(max-with:360px){
-        #SHOP{
-         font-size: 5px;
-        }
-      }
+    
