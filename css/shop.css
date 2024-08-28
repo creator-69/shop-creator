@@ -176,7 +176,7 @@ display: none;
             position: relative;                             
             width: 100%;
             overflow: hidden;
-            justify-content: space-between; /* تغییر از space-evenly به space-between */
+            justify-content: space-between;
             flex-wrap: nowrap;
             background-color: transparent;
        
@@ -193,7 +193,7 @@ display: none;
         .slide {
             min-width: 10%;
             box-sizing: border-box;
-            flex: 0 0 30%; /* تغییر flex به 0 0 30% */
+            flex: 0 0 30%; 
             max-width: 10%;
             box-shadow: 1px 1px 1px rgb(0, 0, 0);
             margin: 10px;
