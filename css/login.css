@@ -70,7 +70,7 @@ button.ghost {
 }
 
 form {
-	background-color: #f4f3f3;
+	background-color: #ffeeee;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -81,7 +81,7 @@ form {
 }
 
 input {
-	background-color: #eee;
+	background-color: #d0d0d0;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;

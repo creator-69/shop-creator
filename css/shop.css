@@ -50,7 +50,7 @@ header .search-box{
     background: linear-gradient(100deg, #999999,#FFFFFF
     );;
     border-radius: 30px;
-    color: rgb(0, 200, 255);
+    color: rgb(59, 206, 247);
     font-size: 16px;
     text-align: center;
 }
@@ -96,7 +96,7 @@ header ul li a{
 }
 
 header ul li a:hover{
-    border-bottom: 2px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(2, 2, 2);
 }
 header .mune{
 
@@ -456,7 +456,7 @@ border-radius: 22px;
       }
   
       .footer-social a:hover {
-        color: #ccc;
+        color: #dedede;
       }
   
       .footer-copyright {
