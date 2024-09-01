@@ -66,11 +66,11 @@ button:focus {
 
 button.ghost {
 	background-color: transparent;
-	border-color: #FFFFFF;
+	border-color: #ffffff;
 }
 
 form {
-	background-color: #ffeeee;
+	background-color: #949494;
 	display: flex;
 	align-items: center;
 	justify-content: center;
