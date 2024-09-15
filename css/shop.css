@@ -47,7 +47,7 @@ header .search-box{
     height: 30px;
     border: none;
     outline: none;
-    background: linear-gradient(100deg, #999999,#FFFFFF
+    background: linear-gradient(100deg, #706969,#FFFFFF
     );;
     border-radius: 30px;
     color: rgb(59, 206, 247);
@@ -482,7 +482,7 @@ border-radius: 22px;
     
     @media screen and (max-width: 1276px) {
         .SOP {
-            font-size: 20px;
+            font-size: 21px;
             
         }
         
