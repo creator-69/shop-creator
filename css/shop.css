@@ -33,7 +33,7 @@ i{
 }
 header .logo{
     flex:1;
-    color: #383838;
+    color: #282828;
     margin-left: 50px;
     text-transform: uppercase;
     
@@ -47,7 +47,7 @@ header .search-box{
     height: 30px;
     border: none;
     outline: none;
-    background: linear-gradient(100deg, #1e1e1e,#FFFFFF
+    background: linear-gradient(100deg, #4c4c4c,#FFFFFF
     );;
     border-radius: 30px;
     color: rgb(59, 206, 247);
