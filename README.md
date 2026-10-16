@@ -1,25 +1,20 @@
-# Shop Creator
+# Creator Shop
 
-A shop-themed practice project in my programming portfolio.
+A front-end storefront concept built with HTML, CSS, and vanilla JavaScript.
 
-## Project purpose
+## What's included
 
-This repository explores a shop or storefront concept. The exact UI and functionality should be verified from the current source code before describing it as a complete e-commerce application.
+- A storefront page with navigation, search field, category links, image-based product sections, and promotional slides.
+- A slideshow that cycles through images and supports previous/next controls.
+- Separate login-page markup and styling.
+- Local image and SVG assets, with Font Awesome icons loaded from a CDN.
 
-## Run it
+This is a **front-end practice project**, not a complete e-commerce system: the repository does not show a real checkout flow, payment integration, or product backend.
 
-A verified setup command is not documented yet. Review the repository files to identify the entry point and runtime, then follow the project's dependency and execution instructions.
+## Run locally
+
+Open `shop-creator.html` in a browser. Keep the `css`, `js`, `img`, and `svg` folders alongside the HTML files so their relative paths resolve. If some assets or icons do not appear, check the browser console and network connection.
 
 ## Learning focus
 
-- Building around a recognizable product concept
-- Organizing code and project assets
-- Documenting implemented behavior clearly
-
-## Next improvements
-
-- Add a screenshot or demo link.
-- Document the actual technology stack and tested run steps.
-- Clearly distinguish interface-only features from any real checkout or backend functionality.
-
-[More projects by Farnam](https://github.com/creator-69?tab=repositories)
+Page layout, CSS styling, relative asset paths, DOM events, and simple slideshow behavior.
