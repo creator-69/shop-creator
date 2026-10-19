@@ -1,63 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="css/login.css">
- <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f1">
+  <title>Account — Creator Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <h1 style="font-family: Georgia; padding-bottom: 22px; font-size: 43px; color: rgb(72, 72, 72);">welcome Creator shop</h1>
-
- <div class="container" id="container">
- 
- <div class="form-container sign-up-container">
- <form action="#">
- <h1>created Account</h1>
- <div class="social-container">
- <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
- <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
- <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
- </div>
- <span>Or use your email for registration</span>
- <input type="text" placeholder="Name" required />
- <input type="email" placeholder="Email" required />
- <input type="password" placeholder="Password" required />
- <button type="submit">Sign UP</button>
- </form>
- </div>
-
- <div class="form-container sign-in-container">
- <form action="#">
- <h1>Sign in</h1>
- <div class="social-container">
- <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
- <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
- <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
- </div>
- <span>or use your account</span>
- <input type="email" placeholder="Email" required />
- <input type="password" placeholder="Password" required />
- <a href="#">Forgot your password?</a>
- <button type="submit">Sign In</button>
- </form>
- </div>
-
- <div class="overlay-container">
- <div class="overlay">
- <div class="overlay-panel overlay-left">
- <h1>Welcome Back!</h1>
- <p>Please enter your information</p>
- <button class="ghost" id="signIn">Sign In</button>
- </div>
- <div class="overlay-panel overlay-right">
- <h1>Hello, Friend!</h1>
- <p>Enter your details and go shopping</p>
- <button class="ghost" id="signUp">Sign Up</button>
- </div>
- </div>
- </div>
-
- <script src="js/login.js"></script>
+  <a class="back-home" href="shop-creator.html">← Back to the shop</a>
+  <main class="auth-layout">
+    <section class="auth-intro">
+      <a class="brand" href="shop-creator.html"><span class="brand-mark">C</span><span>CREATOR<span class="brand-light">SHOP</span></span></a>
+      <div class="intro-copy"><p class="eyebrow">YOUR SPACE, YOUR STYLE</p><h1>Good things<br>start <em>here.</em></h1><p>Keep your favourite finds close and make your next everyday upgrade a little easier.</p><span class="intro-star">✳</span></div>
+      <p class="intro-foot">CREATOR SHOP · FRONT-END DEMO</p>
+    </section>
+    <section class="auth-panel" aria-label="Account forms">
+      <div class="auth-tabs" role="tablist" aria-label="Choose account action"><button type="button" class="auth-tab is-active" id="showSignIn" role="tab" aria-selected="true">Sign in</button><button type="button" class="auth-tab" id="showSignUp" role="tab" aria-selected="false">Create account</button></div>
+      <form id="signInForm" class="auth-form">
+        <p class="eyebrow">WELCOME BACK</p><h2>Good to see you.</h2><p class="form-subtitle">Enter your details to continue.</p>
+        <label for="signInEmail">Email address</label><input id="signInEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <label for="signInPassword">Password</label><input id="signInPassword" name="password" type="password" placeholder="Your password" autocomplete="current-password" required minlength="6">
+        <button class="submit-button" type="submit">Sign in <span>↗</span></button>
+        <p class="form-feedback" id="signInFeedback" aria-live="polite"></p>
+      </form>
+      <form id="signUpForm" class="auth-form" hidden>
+        <p class="eyebrow">MAKE YOURSELF AT HOME</p><h2>Let’s get started.</h2><p class="form-subtitle">Create a demo account profile.</p>
+        <label for="signUpName">Your name</label><input id="signUpName" name="name" type="text" placeholder="Full name" autocomplete="name" required>
+        <label for="signUpEmail">Email address</label><input id="signUpEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <label for="signUpPassword">Create password</label><input id="signUpPassword" name="password" type="password" placeholder="At least 6 characters" autocomplete="new-password" required minlength="6">
+        <button class="submit-button" type="submit">Create account <span>↗</span></button>
+        <p class="form-feedback" id="signUpFeedback" aria-live="polite"></p>
+      </form>
+      <p class="demo-note">Demo only: authentication is not connected to a server. Do not enter a real password.</p>
+    </section>
+  </main>
+  <script src="js/login.js" defer></script>
 </body>
 </html>
