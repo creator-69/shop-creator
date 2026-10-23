@@ -202,6 +202,8 @@ app.post("/api/uploads", requireAdmin, (req, res, next) => {
 });
 
 app.get("/admin", (_req, res) => res.sendFile(path.join(ROOT, "admin.html")));
+// Never expose the local SQLite database or seed directory through the static file server.
+app.use("/data", (_req, res) => res.sendStatus(404));
 app.use(express.static(ROOT, { index: "shop-creator.html", dotfiles: "deny", setHeaders(res, filePath) {
   if (filePath.endsWith(".sqlite") || filePath.endsWith(".env")) res.status(404);
 } }));
