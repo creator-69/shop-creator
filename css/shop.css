@@ -379,12 +379,6 @@ button {
     letter-spacing: -.04em;
 }
 
-.hero-sticker .sticker-star {
-    position: absolute;
-    right: 15px;
-    top: 13px;
-    font-size: 19px;
-}
 
 .hero-controls {
     position: absolute;
@@ -422,13 +416,6 @@ button {
     background: var(--paper);
 }
 
-.hero-orbit span {
-    position: absolute;
-    right: 4px;
-    top: 1px;
-    font-size: 17px;
-    color: #8ca83d;
-}
 
 .section-shell {
     padding-left: clamp(20px, 8vw, 120px);
@@ -538,9 +525,6 @@ button {
     flex-wrap: wrap;
 }
 
-.promo-symbol {
-    font-size: 29px;
-}
 
 .promo-strip p {
     margin: 0;
@@ -982,10 +966,6 @@ button {
     font-size: 9px;
 }
 
-.footer-bottom b {
-    color: var(--lime);
-    margin-left: 5px;
-}
 
 .toast {
     position: fixed;
