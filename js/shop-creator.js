@@ -226,21 +226,26 @@
   renderProductCatalog();
   renderCart();
 
-  // Use the server-backed catalogue when the API is available; keep seeded products as a local preview fallback.
+  // The API is the source of truth when this storefront is served by Express.
+  // Do not silently keep showing stale hard-coded demo products when the API fails.
   async function loadServerCatalog() {
     try {
-      const response = await fetch("/api/products");
-      if (!response.ok) return;
+      const response = await fetch("/api/products", { cache: "no-store", headers: { "Accept": "application/json" } });
+      if (!response.ok) throw new Error("Product API returned HTTP " + response.status);
       const payload = await response.json();
-      if (!Array.isArray(payload.products) || !payload.products.length) return;
+      if (!payload || !Array.isArray(payload.products)) throw new Error("Product API returned an unexpected response.");
       products = payload.products.map(product => ({
         ...product,
         image: product.image_url || product.image || ""
       }));
       renderProductCatalog();
       filterProducts();
-    } catch (_) {
-      // Opening the HTML file directly still shows the built-in demo catalogue.
+      if (!products.length) toast("No published products yet.");
+    } catch (error) {
+      console.error("Creator Shop could not load live products:", error);
+      toast("Live products couldn't load. Open the store from the running server.");
+      const count = $(".collection-bottom > span:first-child");
+      if (count) count.textContent = "Catalogue connection unavailable";
     }
   }
   loadServerCatalog();
