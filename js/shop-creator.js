@@ -47,7 +47,7 @@
 
   // Curated demo catalog. Product photography is loaded from Unsplash; replace with licensed product-specific images before commercial use.
   // Prices are indicative marketplace references, not a live Digikala feed; verify before selling.
-  const products = [
+  let products = [
     { id:"samsung-galaxy-watch6-44", name:"Samsung Galaxy Watch6 44mm", category:"watch", tag:"CONNECTED", detail:"Smartwatch · 44 mm display", price:10900000, image:"img/products/samsung-galaxy-watch6-44.jpg" },
     { id:"huawei-watch-fit-3", name:"Huawei Watch Fit 3", category:"watch", tag:"FITNESS PICK", detail:"Fitness watch · AMOLED display", price:7500000, image:"img/products/huawei-watch-fit-3.jpg" },
     { id:"xiaomi-redmi-watch-5-lite", name:"Xiaomi Redmi Watch 5 Lite", category:"watch", tag:"EVERYDAY", detail:"Smartwatch · AMOLED display · Bluetooth calls", price:10490000, image:"img/products/xiaomi-redmi-watch-5-lite.jpg" },
@@ -225,6 +225,25 @@
   }
   renderProductCatalog();
   renderCart();
+
+  // Use the server-backed catalogue when the API is available; keep seeded products as a local preview fallback.
+  async function loadServerCatalog() {
+    try {
+      const response = await fetch("/api/products");
+      if (!response.ok) return;
+      const payload = await response.json();
+      if (!Array.isArray(payload.products) || !payload.products.length) return;
+      products = payload.products.map(product => ({
+        ...product,
+        image: product.image_url || product.image || ""
+      }));
+      renderProductCatalog();
+      filterProducts();
+    } catch (_) {
+      // Opening the HTML file directly still shows the built-in demo catalogue.
+    }
+  }
+  loadServerCatalog();
   $("#newsletterForm")?.addEventListener("submit", event => {
     event.preventDefault();
     const email = $("#newsletterEmail");
