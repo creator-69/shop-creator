@@ -1659,3 +1659,69 @@ body.drawer-open {
         transition-duration: .01ms !important;
     }
 }
+
+
+/* Wide, edge-to-edge hero banners (2048 × 426 source artwork) */
+.hero {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.hero-copy,
+.hero-orbit,
+.hero-sticker {
+  display: none !important;
+}
+.hero-visual {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+.hero-image-wrap {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2048 / 426;
+  min-height: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+  background: #111;
+}
+.hero-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.hero-image-shade {
+  display: none;
+}
+.hero-controls {
+  right: clamp(12px, 3vw, 42px);
+  bottom: clamp(10px, 2vw, 24px);
+  z-index: 2;
+}
+.hero-controls button {
+  backdrop-filter: blur(8px);
+  background: #1119;
+}
+@media (max-width: 700px) {
+  .hero-image-wrap {
+    aspect-ratio: auto;
+    height: clamp(150px, 52vw, 240px);
+  }
+  .hero-slide {
+    object-fit: contain;
+  }
+  .hero-controls {
+    gap: 8px;
+    right: 10px;
+    bottom: 10px;
+  }
+  .hero-controls button {
+    width: 30px;
+    height: 30px;
+  }
+}
