@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Shop Admin — Creator Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/admin.css">
+  <script src="/js/admin.js" defer></script>
+</head>
+<body>
+  <main class="admin-wrap">
+    <header class="topbar">
+      <a class="brand" href="/shop-creator.html"><span class="brand-mark">C</span><span>CREATOR<span class="brand-light">SHOP</span></span></a>
+      <div class="topbar-right"><span class="status-dot"></span><span>Product control room</span><a href="/shop-creator.html">View store ↗</a></div>
+    </header>
+
+    <section class="login-panel panel" id="loginPanel">
+      <p class="eyebrow">PRIVATE AREA</p>
+      <h1>Welcome <em>back.</em></h1>
+      <p class="muted">Sign in to manage the Creator Shop catalogue.</p>
+      <form id="loginForm" class="stack-form">
+        <label>Username<input name="username" autocomplete="username" required value="admin"></label>
+        <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+        <button class="button primary" type="submit">Sign in <span>→</span></button>
+        <p class="message" id="loginMessage" role="status"></p>
+      </form>
+    </section>
+
+    <section id="dashboard" hidden>
+      <div class="page-heading"><div><p class="eyebrow">INVENTORY / OVERVIEW</p><h1>Your shop, <em>in control.</em></h1><p class="muted">Manage products, pricing, stock and product photography.</p></div><button class="button secondary" id="logoutButton" type="button">Sign out ↗</button></div>
+      <div class="stats-grid">
+        <article class="stat-card"><span>Total products</span><strong id="statTotal">0</strong><small>In your catalogue</small></article>
+        <article class="stat-card"><span>Published</span><strong id="statActive">0</strong><small>Visible in the store</small></article>
+        <article class="stat-card"><span>Low stock</span><strong id="statLow">0</strong><small>Five items or fewer</small></article>
+      </div>
+      <div class="workspace">
+        <section class="panel editor-panel" id="editorPanel">
+          <div class="panel-heading"><div><p class="eyebrow">PRODUCT EDITOR</p><h2 id="formTitle">Add a product</h2></div><span class="step-chip" id="formMode">NEW</span></div>
+          <form id="productForm" class="stack-form">
+            <label>Product name<input name="name" maxlength="160" required placeholder="e.g. Everyday Smartwatch"></label>
+            <div class="two-col">
+              <label>Category<select name="category" required><option value="watch">Watches</option><option value="smart">Smart tech & audio</option><option value="accessory">Accessories</option></select></label>
+              <label>Price (Toman)<input name="price" type="number" min="0" step="1" required placeholder="2500000"></label>
+            </div>
+            <div class="two-col">
+              <label>Stock quantity<input name="stock" type="number" min="0" step="1" required value="10"></label>
+              <label>Product label<input name="tag" maxlength="300" placeholder="BESTSELLER"></label>
+            </div>
+            <label>Short description<textarea name="detail" rows="3" maxlength="1200" placeholder="Key features and product details"></textarea></label>
+            <label class="upload-box" for="imageFile"><span class="upload-icon">↑</span><span><strong>Upload product photo</strong><small>JPG, PNG, WEBP or GIF · up to 5 MB</small></span><input id="imageFile" name="imageFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif"></label>
+            <div class="image-preview" id="imagePreview" hidden><img id="previewImage" alt="Selected product preview"><button type="button" id="removeImage" class="text-button">Remove image</button></div>
+            <label class="check-row"><input type="checkbox" name="active" checked><span>Publish product in the store</span></label>
+            <p class="message" id="formMessage" role="status"></p>
+            <div class="form-actions"><button class="button primary" type="submit" id="saveButton">Save product <span>→</span></button><button class="button secondary" type="button" id="cancelEdit" hidden>Cancel edit</button></div>
+          </form>
+        </section>
+        <section class="panel inventory-panel">
+          <div class="panel-heading inventory-heading"><div><p class="eyebrow">YOUR CATALOGUE</p><h2>Products <span id="tableCount">0</span></h2></div><button class="button secondary compact" id="refreshButton" type="button">↻ Refresh</button></div>
+          <div class="toolbar"><input id="tableSearch" type="search" placeholder="Search products..."><select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option><option value="watch">Watches</option><option value="smart">Smart tech</option><option value="accessory">Accessories</option></select></div>
+          <div class="table-wrap"><table><thead><tr><th>Product</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead><tbody id="productRows"><tr><td colspan="5" class="empty-cell">Loading catalogue…</td></tr></tbody></table></div>
+          <p class="muted table-note">Prices are stored in Toman. Changes are saved to the server database.</p>
+        </section>
+      </div>
+    </section>
+    <footer>CREATOR SHOP <span>ADMIN CONSOLE</span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
