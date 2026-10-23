@@ -115,7 +115,7 @@
 
   const searchInput = $("#searchInput");
   const formatMoney = value => Number(value).toLocaleString("en-US") + " تومان";
-  const productCards = () => $(".product-card", productGrid || document);
+  const productCards = () => $$(".product-card", productGrid || document);
 
   let selectedFilter = "all";
   const filterProducts = () => {
