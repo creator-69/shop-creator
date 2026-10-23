@@ -116,14 +116,6 @@ body {
     margin-top: 22px;
 }
 
-.intro-star {
-    position: absolute;
-    right: 0;
-    bottom: -50px;
-    font-size: 160px;
-    color: #cbd4b3;
-    line-height: 1;
-}
 
 .intro-foot {
     font-size: 8px;
@@ -270,11 +262,6 @@ body {
     .intro-copy > p:not(.eyebrow) {
         max-width: 300px;
         margin: 12px 0 0;
-    }
-
-    .intro-star {
-        font-size: 110px;
-        bottom: -37px;
     }
 
     .intro-foot {
