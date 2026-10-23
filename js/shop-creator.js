@@ -1,135 +1,166 @@
-let prevScrollpos = window.Headers;
-window.onscroll = function() {
-  let currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.querySelector("header").style.top = "0";
-  } else {
-    document.querySelector("header").style.top = "-50px";
-  }
-  prevScrollpos = currentScrollPos;
-}
+(() => {
+  "use strict";
+
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+  const toast = (message) => {
+    const node = $("#toast");
+    if (!node) return;
+    node.textContent = message;
+    node.classList.add("show");
+    window.clearTimeout(toast.timer);
+    toast.timer = window.setTimeout(() => node.classList.remove("show"), 2300);
+  };
 
 
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-document.getElementById("myImage").onclick = function() {
-    document.getElementById("myDiv").scrollIntoView({ behavior: 'smooth' });
-};
-//بعد زدن صفحه جدید ادرس گذاری میشود id="myDiv" به دایو داده شود
+  const menuToggle = $("#menuToggle");
+  const mainNav = $("#mainNav");
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("is-open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+  $$(".nav-link", mainNav || document).forEach(link => link.addEventListener("click", () => {
+    mainNav?.classList.remove("is-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+  }));
 
+  const heroSlides = $$(".hero-slide");
+  let heroIndex = 0;
+  const paintHero = (nextIndex) => {
+    if (!heroSlides.length) return;
+    heroIndex = (nextIndex + heroSlides.length) % heroSlides.length;
+    heroSlides.forEach((slide, index) => slide.classList.toggle("is-active", index === heroIndex));
+    const count = $("#heroCount");
+    if (count) count.textContent = `${String(heroIndex + 1).padStart(2, "0")} / ${String(heroSlides.length).padStart(2, "0")}`;
+  };
+  $("#heroPrev")?.addEventListener("click", () => paintHero(heroIndex - 1));
+  $("#heroNext")?.addEventListener("click", () => paintHero(heroIndex + 1));
+  let heroTimer = window.setInterval(() => paintHero(heroIndex + 1), 5500);
+  $(".hero-visual")?.addEventListener("mouseenter", () => window.clearInterval(heroTimer));
+  $(".hero-visual")?.addEventListener("mouseleave", () => {
+    window.clearInterval(heroTimer);
+    heroTimer = window.setInterval(() => paintHero(heroIndex + 1), 5500);
+  });
 
-let slideIndex = 0;
-showSlides(slideIndex);
+  
+  const searchInput = $("#searchInput");
+  const productCards = $$(".product-card");
+  let selectedFilter = "all";
+  const filterProducts = () => {
+    const query = (searchInput?.value || "").trim().toLocaleLowerCase();
+    let visible = 0;
+    productCards.forEach(card => {
+      const matchesCategory = selectedFilter === "all" || card.dataset.category === selectedFilter;
+      const matchesQuery = !query || (card.dataset.name || "").toLocaleLowerCase().includes(query);
+      const show = matchesCategory && matchesQuery;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+    const noResults = $("#noResults");
+    if (noResults) noResults.hidden = visible !== 0;
+  };
+  searchInput?.addEventListener("input", filterProducts);
+  $("#searchForm")?.addEventListener("submit", event => {
+    event.preventDefault();
+    filterProducts();
+    $("#products")?.scrollIntoView({ behavior: "smooth" });
+  });
+  $$(".filter-pill").forEach(button => button.addEventListener("click", () => {
+    selectedFilter = button.dataset.filter || "all";
+    $$(".filter-pill").forEach(pill => pill.classList.toggle("is-selected", pill === button));
+    filterProducts();
+  }));
+  $$("[data-category]", $("#categories") || document).forEach(link => link.addEventListener("click", () => {
+    selectedFilter = link.dataset.category === "watch" ? "watch" : link.dataset.category === "smart" ? "smart" : "all";
+    $$(".filter-pill").forEach(pill => pill.classList.toggle("is-selected", pill.dataset.filter === selectedFilter));
+    filterProducts();
+  }));
 
-function showSlides(n) {
-    const slides = document.getElementsByClassName("slides");
-    slideIndex += n;
+  const storageKey = "creator-shop-demo-cart-v1";
+  let cart = [];
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+    if (Array.isArray(saved)) cart = saved.filter(item => item && typeof item.name === "string" && Number.isFinite(Number(item.price)));
+  } catch (_) { cart = []; }
 
-    if (slideIndex >= slides.length) { slideIndex = 0; }
-    if (slideIndex < 0) { slideIndex = slides.length - 1; }
-
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
+  const formatMoney = value => "$" + Number(value).toLocaleString("en-US", { maximumFractionDigits: 2 });
+  const saveCart = () => {
+    try { localStorage.setItem(storageKey, JSON.stringify(cart)); } catch (_) { /* private browsing may block storage */ }
+    renderCart();
+  };
+  const renderCart = () => {
+    const count = cart.reduce((sum, item) => sum + item.qty, 0);
+    const countNode = $("#cartCount");
+    const drawerCount = $("#drawerCount");
+    const subtotalNode = $("#cartSubtotal");
+    const itemsNode = $("#cartItems");
+    if (countNode) countNode.textContent = String(count);
+    if (drawerCount) drawerCount.textContent = `(${count})`;
+    if (subtotalNode) subtotalNode.textContent = formatMoney(cart.reduce((sum, item) => sum + item.price * item.qty, 0));
+    if (!itemsNode) return;
+    if (!cart.length) {
+      itemsNode.innerHTML = '<p class="cart-empty">Your bag is waiting for something good.</p>';
+      return;
     }
-    slides[slideIndex].classList.add("active");
-}
+    itemsNode.replaceChildren();
+    cart.forEach(item => {
+      const row = document.createElement("div");
+      row.className = "cart-item";
+      const details = document.createElement("div");
+      const title = document.createElement("h3");
+      title.textContent = item.name;
+      const price = document.createElement("p");
+      price.textContent = `${formatMoney(item.price)} · Qty ${item.qty}`;
+      details.append(title, price);
+      const remove = document.createElement("button");
+      remove.className = "remove-item";
+      remove.type = "button";
+      remove.textContent = "Remove";
+      remove.setAttribute("aria-label", `Remove ${item.name}`);
+      remove.addEventListener("click", () => {
+        cart = cart.filter(entry => entry.id !== item.id);
+        saveCart();
+      });
+      row.append(details, remove);
+      itemsNode.append(row);
+    });
+  };
 
-// تغییر عکس‌ها به صورت خودکار
-setInterval(() => {
-    showSlides(1);
-}, 3000); // تغییر عکس هر 3 ثانیه
+  const drawer = $("#cartDrawer");
+  const backdrop = $("#drawerBackdrop");
+  const setDrawer = (open) => {
+    drawer?.classList.toggle("is-open", open);
+    backdrop?.classList.toggle("is-open", open);
+    drawer?.setAttribute("aria-hidden", String(!open));
+    document.body.classList.toggle("drawer-open", open);
+    if (open) $("#cartClose")?.focus();
+  };
+  $("#cartButton")?.addEventListener("click", () => setDrawer(true));
+  $("#cartClose")?.addEventListener("click", () => setDrawer(false));
+  $("#continueShopping")?.addEventListener("click", () => setDrawer(false));
+  backdrop?.addEventListener("click", () => setDrawer(false));
+  document.addEventListener("keydown", event => { if (event.key === "Escape") setDrawer(false); });
 
+  $$(".quick-add").forEach(button => button.addEventListener("click", () => {
+    const name = button.dataset.product || "Product";
+    const price = Number(button.dataset.price || 0);
+    const existing = cart.find(item => item.name === name);
+    if (existing) existing.qty += 1;
+    else cart.push({ id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, name, price, qty: 1 });
+    saveCart();
+    toast("Added to your bag");
+  }));
+  renderCart();
+  $("#newsletterForm")?.addEventListener("submit", event => {
+    event.preventDefault();
+    const email = $("#newsletterEmail");
+    const message = $("#newsletterMessage");
+    if (!email?.checkValidity()) { email?.reportValidity(); return; }
+    if (message) message.textContent = "Thanks! This demo form does not send or store your email.";
+    email.value = "";
+  });
 
-
-function viewProduct() {
-    window.location.href = 'https://iranfso.com';
-}
-function viewProduc() {
-    window.location.href = 'product2.html';
-}
-function viewProdu() {
-    window.location.href = 'product3.html';
-}
-function viewProd() {
-    window.location.href = 'product4.html';
-}
-function viewProdz() {
-    window.location.href = 'product4.html';
-}
-function viewProdzx() {
-    window.location.href = 'product4.html';
-}
-function viewProdzxc() {
-    window.location.href = 'product4.html';
-}
-function viewProdzxcv() {
-    window.location.href = 'product4.html';
-}
-function viewProdzxcvb() {
-    window.location.href = 'product4.html';
-}
-function viewProda() {
-    window.location.href = 'product4.html';
-}
-
-let currentIndex = 0;
-
-function showSlide(index) {
-    const slides = document.querySelectorAll('.slide');
-    const slider = document.querySelector('.slider');
-    const totalSlides = slides.length;
-    const maxIndex = Math.floor((totalSlides - 1) / 2) * 2; // Calculate the maximum index for two-slide increments
-
-    if (index > maxIndex) {
-        currentIndex = maxIndex;
-    } else if (index < 0) {
-        currentIndex = 0;
-    } else {
-        currentIndex = index;
-    }
-
-    slider.style.transform = `translateX(-${currentIndex * 12 / 2}%)`;
-}
-
-function nextSlide() {
-    showSlide(currentIndex + 2);
-}
-
-function prevSlide() {
-    showSlide(currentIndex - 2);
-}
-
-// Add event listeners for buttons
-document.querySelector('.next').addEventListener('click', nextSlide);
-document.querySelector('.prev').addEventListener('click', prevSlide);
+  const year = $("#year");
+  if (year) year.textContent = String(new Date().getFullYear());
+})();
