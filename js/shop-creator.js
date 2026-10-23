@@ -50,7 +50,7 @@
   const products = [
     { id:"samsung-galaxy-watch6-44", name:"Samsung Galaxy Watch6 44mm", category:"watch", tag:"CONNECTED", detail:"Smartwatch · 44 mm display", price:10900000, image:"img/products/samsung-galaxy-watch6-44.jpg" },
     { id:"huawei-watch-fit-3", name:"Huawei Watch Fit 3", category:"watch", tag:"FITNESS PICK", detail:"Fitness watch · AMOLED display", price:7500000, image:"img/products/huawei-watch-fit-3.jpg" },
-    { id:"xiaomi-redmi-watch-5-lite", name:"Xiaomi Redmi Watch 5 Lite", category:"watch", tag:"EVERYDAY", detail:"Smartwatch · long battery life", price:4300000, image:"img/products/xiaomi-redmi-watch-5-lite.jpg" },
+    { id:"xiaomi-redmi-watch-5-lite", name:"Xiaomi Redmi Watch 5 Lite", category:"watch", tag:"EVERYDAY", detail:"Smartwatch · AMOLED display · Bluetooth calls", price:10490000, image:"img/products/xiaomi-redmi-watch-5-lite.jpg" },
     { id:"xiaomi-smart-band-9", name:"Xiaomi Smart Band 9", category:"watch", tag:"LIGHTWEIGHT", detail:"Fitness band · activity tracking", price:3200000, image:"img/products/xiaomi-smart-band-9.jpg" },
     { id:"amazfit-bip-5", name:"Amazfit Bip 5", category:"watch", tag:"SMART PICK", detail:"Smartwatch · calls and health tools", price:4800000, image:"img/products/amazfit-bip-5.jpg" },
     { id:"haylou-solar-neo", name:"Haylou Solar Neo", category:"watch", tag:"OUTDOOR", detail:"Smartwatch · everyday tracking", price:2800000, image:"img/products/haylou-solar-neo.jpg" },
@@ -58,7 +58,7 @@
     { id:"skmei-1838", name:"SKMEI 1838 RGWT", category:"watch", tag:"MINIMAL", detail:"Digital wristwatch · casual style", price:1600000, image:"img/products/skmei-1838.jpg" },
     { id:"g9-ultra-pro", name:"G9 Ultra Pro", category:"watch", tag:"VALUE PICK", detail:"Smartwatch · sport-inspired design", price:1100000, image:"img/products/g9-ultra-pro.jpg" },
     { id:"alain-delon-ad354-1546", name:"Alain Delon AD354-1546", category:"watch", tag:"THE CLASSIC", detail:"Classic wristwatch · everyday style", price:6800000, image:"img/products/alain-delon-ad354-1546.jpg" },
-    { id:"anker-soundcore-r50i", name:"Anker Soundcore R50i", category:"smart", tag:"AUDIO PICK", detail:"Wireless earbuds · USB-C charging", price:2001000, image:"img/products/anker-soundcore-r50i.jpg" },
+    { id:"anker-soundcore-r50i", name:"Anker Soundcore R50i", category:"smart", tag:"AUDIO PICK", detail:"Wireless earbuds · USB-C · no ANC", price:2490000, image:"img/products/anker-soundcore-r50i.jpg" },
     { id:"anker-soundcore-r50i-nc", name:"Anker Soundcore R50i NC", category:"smart", tag:"NOISE CONTROL", detail:"Wireless earbuds · noise cancelling", price:3210000, image:"img/products/anker-soundcore-r50i-nc.jpg" },
     { id:"air40-sound", name:"AIR40 Sound", category:"smart", tag:"BUDGET PICK", detail:"Wireless earbuds · compact case", price:490000, image:"img/products/air40-sound.jpg" },
     { id:"p47-wireless-headphones", name:"P47 Wireless Headphones", category:"smart", tag:"ENTRY LEVEL", detail:"Wireless on-ear headphones", price:800000, image:"img/products/p47-wireless-headphones.jpg" },
@@ -124,7 +124,7 @@
   const filterProducts = () => {
     const query = (searchInput?.value || "").trim().toLocaleLowerCase();
     let visible = 0;
-    productCards.forEach(card => {
+    productCards().forEach(card => {
       const matchesCategory = selectedFilter === "all" || card.dataset.category === selectedFilter;
       const matchesQuery = !query || (card.dataset.name || "").toLocaleLowerCase().includes(query);
       const show = matchesCategory && matchesQuery;
@@ -146,7 +146,7 @@
     filterProducts();
   }));
   $$("[data-category]", $("#categories") || document).forEach(link => link.addEventListener("click", () => {
-    selectedFilter = link.dataset.category === "watch" ? "watch" : link.dataset.category === "smart" ? "smart" : "all";
+    selectedFilter = ["watch", "smart", "accessory"].includes(link.dataset.category) ? link.dataset.category : "all";
     $$(".filter-pill").forEach(pill => pill.classList.toggle("is-selected", pill.dataset.filter === selectedFilter));
     filterProducts();
   }));
