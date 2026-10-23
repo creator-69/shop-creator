@@ -44,8 +44,82 @@
   });
 
   
+
+  // Curated demo catalog. Image files are intentionally placeholders for the owner to add later.
+  // Prices are indicative marketplace references, not a live Digikala feed; verify before selling.
+  const products = [
+    { id:"samsung-galaxy-watch6-44", name:"Samsung Galaxy Watch6 44mm", category:"watch", tag:"CONNECTED", detail:"Smartwatch · 44 mm display", price:10900000, image:"img/products/samsung-galaxy-watch6-44.jpg" },
+    { id:"huawei-watch-fit-3", name:"Huawei Watch Fit 3", category:"watch", tag:"FITNESS PICK", detail:"Fitness watch · AMOLED display", price:7500000, image:"img/products/huawei-watch-fit-3.jpg" },
+    { id:"xiaomi-redmi-watch-5-lite", name:"Xiaomi Redmi Watch 5 Lite", category:"watch", tag:"EVERYDAY", detail:"Smartwatch · long battery life", price:4300000, image:"img/products/xiaomi-redmi-watch-5-lite.jpg" },
+    { id:"xiaomi-smart-band-9", name:"Xiaomi Smart Band 9", category:"watch", tag:"LIGHTWEIGHT", detail:"Fitness band · activity tracking", price:3200000, image:"img/products/xiaomi-smart-band-9.jpg" },
+    { id:"amazfit-bip-5", name:"Amazfit Bip 5", category:"watch", tag:"SMART PICK", detail:"Smartwatch · calls and health tools", price:4800000, image:"img/products/amazfit-bip-5.jpg" },
+    { id:"haylou-solar-neo", name:"Haylou Solar Neo", category:"watch", tag:"OUTDOOR", detail:"Smartwatch · everyday tracking", price:2800000, image:"img/products/haylou-solar-neo.jpg" },
+    { id:"modyo-st12", name:"Modyo ST12", category:"watch", tag:"FEATURED", detail:"Smartwatch · large display", price:10300000, image:"img/products/modyo-st12.jpg" },
+    { id:"skmei-1838", name:"SKMEI 1838 RGWT", category:"watch", tag:"MINIMAL", detail:"Digital wristwatch · casual style", price:1600000, image:"img/products/skmei-1838.jpg" },
+    { id:"g9-ultra-pro", name:"G9 Ultra Pro", category:"watch", tag:"VALUE PICK", detail:"Smartwatch · sport-inspired design", price:1100000, image:"img/products/g9-ultra-pro.jpg" },
+    { id:"alain-delon-ad354-1546", name:"Alain Delon AD354-1546", category:"watch", tag:"THE CLASSIC", detail:"Classic wristwatch · everyday style", price:6800000, image:"img/products/alain-delon-ad354-1546.jpg" },
+    { id:"anker-soundcore-r50i", name:"Anker Soundcore R50i", category:"smart", tag:"AUDIO PICK", detail:"Wireless earbuds · USB-C charging", price:2001000, image:"img/products/anker-soundcore-r50i.jpg" },
+    { id:"anker-soundcore-r50i-nc", name:"Anker Soundcore R50i NC", category:"smart", tag:"NOISE CONTROL", detail:"Wireless earbuds · noise cancelling", price:3210000, image:"img/products/anker-soundcore-r50i-nc.jpg" },
+    { id:"air40-sound", name:"AIR40 Sound", category:"smart", tag:"BUDGET PICK", detail:"Wireless earbuds · compact case", price:490000, image:"img/products/air40-sound.jpg" },
+    { id:"p47-wireless-headphones", name:"P47 Wireless Headphones", category:"smart", tag:"ENTRY LEVEL", detail:"Wireless on-ear headphones", price:800000, image:"img/products/p47-wireless-headphones.jpg" },
+    { id:"samsung-galaxy-buds4-pro", name:"Samsung Galaxy Buds4 Pro", category:"smart", tag:"PREMIUM AUDIO", detail:"Wireless earbuds · premium audio", price:31490000, image:"img/products/samsung-galaxy-buds4-pro.jpg" },
+    { id:"apple-airpods-pro-3", name:"Apple AirPods Pro 3", category:"smart", tag:"PREMIUM PICK", detail:"Wireless earbuds · active noise control", price:37650990, image:"img/products/apple-airpods-pro-3.jpg" },
+    { id:"jbl-clip-5", name:"JBL Clip 5", category:"smart", tag:"PORTABLE SOUND", detail:"Portable Bluetooth speaker · clip design", price:8167700, image:"img/products/jbl-clip-5.jpg" },
+    { id:"jbl-go-4", name:"JBL Go 4", category:"smart", tag:"COMPACT AUDIO", detail:"Portable Bluetooth speaker · compact body", price:7999000, image:"img/products/jbl-go-4.jpg" },
+    { id:"xiaomi-sound-pocket", name:"Xiaomi Sound Pocket", category:"smart", tag:"SMALL BUT MIGHTY", detail:"Portable Bluetooth speaker", price:3068010, image:"img/products/xiaomi-sound-pocket.jpg" },
+    { id:"m3-portable-speaker", name:"M3 Portable Speaker", category:"smart", tag:"BUDGET AUDIO", detail:"Compact 4W Bluetooth speaker", price:474000, image:"img/products/m3-portable-speaker.jpg" },
+    { id:"jbl-flip-7", name:"JBL Flip 7", category:"smart", tag:"RUGGED SOUND", detail:"Portable Bluetooth speaker · outdoor use", price:21345500, image:"img/products/jbl-flip-7.jpg" },
+    { id:"xiaomi-sound-outdoor", name:"Xiaomi Sound Outdoor", category:"smart", tag:"OUTDOOR AUDIO", detail:"Portable Bluetooth speaker", price:10600000, image:"img/products/xiaomi-sound-outdoor.jpg" },
+    { id:"baseus-20w-charger", name:"Baseus 20W USB-C Charger", category:"accessory", tag:"DAILY ESSENTIAL", detail:"USB-C wall charger · compact design", price:850000, image:"img/products/baseus-20w-charger.jpg" },
+    { id:"power-bank-20000", name:"20,000mAh Power Bank", category:"accessory", tag:"ON THE GO", detail:"Portable battery · multi-device charging", price:2200000, image:"img/products/power-bank-20000.jpg" },
+    { id:"usb-c-cable", name:"Braided USB-C Cable", category:"accessory", tag:"SMALL UPGRADE", detail:"USB-C charging cable · braided finish", price:280000, image:"img/products/braided-usb-c-cable.jpg" },
+    { id:"everyday-tech-pouch", name:"Everyday Tech Pouch", category:"accessory", tag:"STAY ORGANIZED", detail:"Accessory pouch · cable and gadget storage", price:950000, image:"img/products/everyday-tech-pouch.jpg" },
+    { id:"laptop-sleeve-14", name:"14-inch Laptop Sleeve", category:"accessory", tag:"WORKDAY READY", detail:"Protective sleeve · fits many 14-inch laptops", price:1200000, image:"img/products/laptop-sleeve-14.jpg" },
+    { id:"foldable-phone-stand", name:"Foldable Phone Stand", category:"accessory", tag:"DESK ESSENTIAL", detail:"Adjustable stand · phone and small tablet", price:390000, image:"img/products/foldable-phone-stand.jpg" },
+    { id:"wireless-charging-pad", name:"Wireless Charging Pad", category:"accessory", tag:"CLEAN SETUP", detail:"Qi-style wireless charging pad", price:790000, image:"img/products/wireless-charging-pad.jpg" },
+    { id:"compact-backpack", name:"Compact Everyday Backpack", category:"accessory", tag:"READY TO GO", detail:"Everyday bag · tech-friendly storage", price:1850000, image:"img/products/compact-everyday-backpack.jpg" }
+  ];
+
+  const productGrid = $("#productGrid");
+  const escapeHtml = value => String(value).replace(/[&<>"']/g, character => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[character]);
+  const renderProductCatalog = () => {
+    if (!productGrid) return;
+    productGrid.innerHTML = products.map(product => `
+      <article class="product-card" data-product-id="${product.id}" data-category="${product.category}" data-name="${escapeHtml(product.name + " " + product.detail)}" data-price="${product.price}">
+        <div class="product-image">
+          <span class="product-tag">${escapeHtml(product.tag)}</span>
+          <div class="product-placeholder" aria-label="Image placeholder">
+            <span>ADD PRODUCT IMAGE</span>
+            <code>${escapeHtml(product.image)}</code>
+          </div>
+          <img class="catalog-product-image" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy">
+          <button class="quick-add" type="button" data-product="${escapeHtml(product.name)}" data-price="${product.price}">Add to bag <span>+</span></button>
+        </div>
+        <div class="product-meta">
+          <div><h3>${escapeHtml(product.name)}</h3><p>${escapeHtml(product.detail)}</p></div>
+          <strong>${formatMoney(product.price)}</strong>
+        </div>
+      </article>`).join("");
+    $(".catalog-product-image", productGrid).forEach(image => {
+      const markMissing = () => {
+        image.hidden = true;
+        image.parentElement.classList.add("is-placeholder");
+      };
+      image.addEventListener("error", markMissing, { once: true });
+      image.addEventListener("load", () => image.parentElement.classList.remove("is-placeholder"), { once: true });
+      if (image.complete && image.naturalWidth === 0) markMissing();
+    });
+    $(".quick-add", productGrid).forEach(button => button.addEventListener("click", addToCart));
+    const collectionCount = $(".collection-bottom > span:first-child");
+    if (collectionCount) collectionCount.textContent = `${products.length} curated pieces`;
+  };
+
   const searchInput = $("#searchInput");
-  const productCards = $$(".product-card");
+  const formatMoney = value => Number(value).toLocaleString("en-US") + " تومان";
+  const productCards = $(".product-card");
+
   let selectedFilter = "all";
   const filterProducts = () => {
     const query = (searchInput?.value || "").trim().toLocaleLowerCase();
@@ -77,14 +151,14 @@
     filterProducts();
   }));
 
-  const storageKey = "creator-shop-demo-cart-v1";
+  const storageKey = "creator-shop-demo-cart-v2";
   let cart = [];
   try {
     const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
     if (Array.isArray(saved)) cart = saved.filter(item => item && typeof item.name === "string" && Number.isFinite(Number(item.price)));
   } catch (_) { cart = []; }
 
-  const formatMoney = value => "$" + Number(value).toLocaleString("en-US", { maximumFractionDigits: 2 });
+
   const saveCart = () => {
     try { localStorage.setItem(storageKey, JSON.stringify(cart)); } catch (_) { /* private browsing may block storage */ }
     renderCart();
@@ -142,7 +216,8 @@
   backdrop?.addEventListener("click", () => setDrawer(false));
   document.addEventListener("keydown", event => { if (event.key === "Escape") setDrawer(false); });
 
-  $$(".quick-add").forEach(button => button.addEventListener("click", () => {
+  function addToCart(event) {
+    const button = event.currentTarget;
     const name = button.dataset.product || "Product";
     const price = Number(button.dataset.price || 0);
     const existing = cart.find(item => item.name === name);
@@ -150,7 +225,8 @@
     else cart.push({ id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, name, price, qty: 1 });
     saveCart();
     toast("Added to your bag");
-  }));
+  }
+  renderProductCatalog();
   renderCart();
   $("#newsletterForm")?.addEventListener("submit", event => {
     event.preventDefault();
