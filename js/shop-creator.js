@@ -90,10 +90,7 @@
       <article class="product-card" data-product-id="${product.id}" data-category="${product.category}" data-name="${escapeHtml(product.name + " " + product.detail)}" data-price="${product.price}">
         <div class="product-image">
           <span class="product-tag">${escapeHtml(product.tag)}</span>
-          <div class="product-placeholder" aria-label="Image placeholder">
-            <span>ADD PRODUCT IMAGE</span>
-            <code>${escapeHtml(product.image)}</code>
-          </div>
+          <div class="product-placeholder" aria-label="Product image loading fallback"><span>IMAGE UNAVAILABLE</span></div>
           <img class="catalog-product-image" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy">
           <button class="quick-add" type="button" data-product="${escapeHtml(product.name)}" data-price="${product.price}">Add to bag <span>+</span></button>
         </div>
