@@ -88,9 +88,12 @@
         const uploaded=await api("/api/uploads",{method:"POST",body:form}); currentImage=uploaded.image;
       }
       const body={name:productForm.elements.name.value.trim(),category:productForm.elements.category.value,price:Number(productForm.elements.price.value),stock:Number(productForm.elements.stock.value),tag:productForm.elements.tag.value.trim()||"NEW",detail:productForm.elements.detail.value.trim(),image:currentImage,active:productForm.elements.active.checked};
-      if(editingId) await api("/api/admin/products/"+encodeURIComponent(editingId),{method:"PUT",body:JSON.stringify(body)});
+      const wasEditing = Boolean(editingId);
+      if(wasEditing) await api("/api/admin/products/"+encodeURIComponent(editingId),{method:"PUT",body:JSON.stringify(body)});
       else await api("/api/admin/products",{method:"POST",body:JSON.stringify(body)});
-      resetForm(); await loadProducts(); toast(editingId?"Product updated":"Product saved");
+      resetForm();
+      await loadProducts();
+      toast(wasEditing ? "Product updated" : "Product saved");
     } catch(error) { formMessage.textContent=error.message; }
     finally { $("#saveButton").disabled=false; }
   });
